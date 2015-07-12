@@ -4,7 +4,7 @@ var DEFAULT_POLL_INTERVAL = 15 * 60 * 1000;
 
 var userId = "";
 var pollInterval = DEFAULT_POLL_INTERVAL;
-var apiPublicKey = "MZkI5EzDg2IQrt7f4G64cg=="; //Check out http://fakevout.azurewebsites.net/account/apikeys to generate one.
+var apiPublicKey = ""; //Check out http://fakevout.azurewebsites.net/account/apikeys to generate one.
 var serviceUri = "https://voat.co/api"; //Current API live site
 //var serviceUri = "https://voat.co/api/v1"; //New API live site
 //var serviceUri = "https://fakevout.azurewebsites.net/api/v1" //Test site
