@@ -1,0 +1,56 @@
+<html>
+<head>
+	<style>
+		body
+		{
+			background-color:  #549fca;
+			color: black;
+			font-family: Arial;
+			font-weight: bold;
+			font-size: 1.2em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#content-body
+		{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#buttons
+		{
+			font-size: 2em;
+			text-align: center;
+		}
+
+		#error
+		{
+			color: red;
+			font-size: 2em;
+			text-align: center;
+		}
+	</style>
+	<script src="jquery-2.1.4.min.js" type="application/javascript"></script>
+	<script src="extension.js" type="application/javascript"></script>
+</head>
+<body>
+	<div id="content-body">
+		<img src="voatLogo.png" alt="Voat Logo" />
+		<div id="info">
+			<div id="user-name"></div>
+			<div id="buttons">
+				<span id="submission-points-received">-</span>
+				<span> | </span>
+				<span id="comment-points-received">-</span>
+				<!--<span> | </span>
+				<div id="badge-total">-</div>-->
+			</div>
+		</div>
+		<div id="error"></div>
+	</div>
+</body>
+</html>

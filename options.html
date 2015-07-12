@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Voat Speed Dial Extension for Opera - Settings</title>
+    <style>
+        #content-body
+        {
+            font-family: Arial;
+        }
+    </style>
+    <script src="jquery-2.1.4.min.js" type="application/javascript"></script>
+    <script src="options.js" type="application/javascript"></script>
+</head>
+<body>
+<div id="content-body">
+    <h1>Voat Speed Dial Extension for Opera - Settings</h1>
+    <form name="settings">
+        <label for="username">Voat Username: </label>
+        <input type="text" name="username" id="username" />
+        <br/><br />
+        <label for="updateInterval">Update Interval (in minutes): </label>
+        <input type="number" min="0" step="1" pattern="[0-9]+" name="updateInterval" id="updateInterval" value="15" />
+        <br /><br />
+        <button type="button" id="save-settings">Save Settings</button>
+    </form>
+</div>
+</body>
+</html>
