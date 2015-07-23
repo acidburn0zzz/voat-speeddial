@@ -118,27 +118,29 @@ function setPollInterval(minutes)
 
 function init()
 {
-    if (localStorage && localStorage.getItem('username') !== null)
-    {
-        userId = localStorage.getItem('username');
-    }
-    else
-    {
-        chrome.tabs.create({url: "options.html"});
-    }
+    chrome.storage.sync.get(null, function(data){
+        if (data.username)
+        {
+            userId = data.username;
+        }
+        else
+        {
+            chrome.tabs.create({url: "options.html"});
+        }
 
-    if (localStorage && localStorage.getItem('updateInterval') !== null)
-    {
-        setPollInterval(Number(localStorage.getItem('updateInterval'))); //This number could get wonky if updateInterval isn't an integer but I don't care.
-    }
+        if (data.updateInterval)
+        {
+            setPollInterval(data.updateInterval); //This number could get wonky if data.updateInterval isn't an integer but I don't care.
+        }
 
-    $(window).bind('storage', function(e){ //Listen for changes to localstorage
+        $("#user-name").text("/u/" + userId);
+        poll();
+    });
+
+    chrome.storage.onChanged.addListener(function(changes, namespace){
         clearTimeouts(timeouts);
         init();
     });
-
-    $("#user-name").text("/u/" + userId);
-    poll();
 }
 
 $(document).ready(init);

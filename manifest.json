@@ -1,7 +1,7 @@
 {
    "name": "Voat Speed Dial Extension",
-   "developer": "EvaUnit02",
-   "version": "0.5",
+   "developer": {"name": "EvaUnit02", "url": "https://teamm3.com/EvaUnit02"},
+   "version": "1.0",
    "manifest_version": 2,
    "permissions": ["speeddial"],
    "background": {"page": "extension.html"},
@@ -23,6 +23,7 @@
       "http://*.voat.co/*",
       "https://*.voat.co/*",
       "http://fakevout.azurewebsites.net/*",
-      "tabs"
+      "tabs",
+      "storage"
    ]
 }

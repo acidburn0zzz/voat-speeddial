@@ -1,17 +1,17 @@
 function setSettings()
 {
-    localStorage.setItem('username', $("#username").val());
+    chrome.storage.sync.set({'username': $("#username").val()});
 
     var interval = Number($("#updateInterval").val());
 
     if (isNaN(interval) || interval <= 0)
     {
-        localStorage.setItem("updateInterval", "15"); //If the interval is too low or something weird, just set it to 15 minutes.
+        chrome.storage.sync.set({'updateInterval': '15'}); //If the interval is too low or something weird, just set it to 15 minutes.
         closeSettingsTab();
     }
     else if (Number.isSafeInteger(interval))
     {
-        localStorage.setItem("updateInterval", $("#updateInterval").val());
+        chrome.storage.sync.set({'updateInterval': $("#updateInterval").val()});
         closeSettingsTab();
     }
     else
@@ -22,10 +22,12 @@ function setSettings()
 
 function getSettings()
 {
-    if (localStorage)
+    if (chrome.storage)
     {
-        $("#username").val(localStorage.getItem('username'));
-        $("#updateInterval").val(localStorage.getItem('updateInterval'));
+        chrome.storage.sync.get(null, function(data){
+            $("#username").val(data.username);
+            $("#updateInterval").val(data.updateInterval);
+        });
     }
 }
 
